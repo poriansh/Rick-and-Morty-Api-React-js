@@ -32,15 +32,17 @@ function CharacterDetail({selectId, handelAddchar, addFoveritStop}) {
   }, [selectId]);
   if (isloading)
     return (
-      <div style={{flex: 1, display: "flex", justifyContent: "center", alignItems: "flex-start"}}>
+      <div className="empty" style={{ display: "flex", justifyContent: "center", alignItems: "flex-start"}}>
         <Loader />
       </div>
     );
   if (character === null || selectId === null) {
     return (
-      <div
+
+       <div
+      className="empty"
         style={{
-          flex: 1,
+         
           color: "#fff",
           display: "flex",
           justifyContent: "center",
