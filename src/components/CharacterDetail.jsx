@@ -52,7 +52,7 @@ function CharacterDetail({selectId, handelAddchar, addFoveritStop}) {
     );
   }
   return (
-    <div style={{flex: 1}}>
+    <div className="caracter-wrraper">
       <Characterinfo
         character={character}
         handelAddchar={handelAddchar}
