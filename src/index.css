@@ -75,11 +75,10 @@ button {
 
 .modal {
   width: 98%;
-  min-height: 250px;
+  height: 250px;
+  max-height: 100vh;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 30%;
   background-color: var(--slate-900);
   padding: 1rem;
   border-radius: 1rem;
@@ -112,7 +111,7 @@ button {
   .modal {
     max-width: 30rem;
   }
-  .text-field{
+  .text-field {
     display: block;
   }
 }
@@ -123,9 +122,11 @@ button {
 }
 
 .backdrop {
-  width: 100vw;
-  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   inset: 0;
+  overflow: hidden;
   background-color: rgba(63, 69, 76, 0.8);
 }
