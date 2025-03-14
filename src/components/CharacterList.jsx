@@ -2,6 +2,16 @@ import {EyeSlashIcon} from "@heroicons/react/24/outline";
 import {EyeIcon} from "@heroicons/react/24/outline";
 
 function CharacterList({Characters, onselected, selectId}) {
+  if (!Characters.length)
+    return (
+      <p
+        style={{
+          color: "#FFf",
+        }}
+      >
+        کاراکتر وجود ندارد
+      </p>
+    );
   return (
     <div className="characters-list">
       {Characters.map((item) => (

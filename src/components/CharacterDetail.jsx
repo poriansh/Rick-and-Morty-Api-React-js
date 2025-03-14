@@ -13,13 +13,12 @@ function CharacterDetail({selectId, handelAddchar, addFoveritStop}) {
         setloading(true);
         setCharacter(null);
         const { data } = await axios.get(`https://rickandmortyapi.com/api/character/${selectId}`);
-        console.log(data)
+
         const episodeId = data.episode.map((e) => e.split("/").at(-1));
-        console.log(episodeId)
+
         const {data: episodeData} = await axios.get(
           `https://rickandmortyapi.com/api/episode/${episodeId}`
         );
-        console.log(episodeData)
         setepisodes([episodeData].flat());
         setCharacter(data);
       } catch (error) {

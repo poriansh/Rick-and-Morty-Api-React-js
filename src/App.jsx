@@ -9,7 +9,7 @@ import useLocalstorage from "./hooks/useLocalstorage";
 
 function App() {
   const [query, setquery] = useState("");
-  const {Characters} = useCharacter(query);
+  const {Characters}  = useCharacter(query);
   const [selectId, setselectid] = useState(null);
   const [Foverit, setFoverit] = useLocalstorage("FoveritList",[]);
 
