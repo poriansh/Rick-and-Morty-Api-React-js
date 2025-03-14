@@ -1,10 +1,12 @@
-import {XCircleIcon} from "@heroicons/react/20/solid";
+import { XCircleIcon } from "@heroicons/react/20/solid";
+import useClickside from "../hooks/useClickside";
 
 function Modal({ isopen, setisopen, title, children }) {
-    if (!isopen) return null;
+  if (!isopen) return null;
+  const ref = useClickside(() => setisopen(false));
   return (
-    <div className="backdrop" onClick={() => setisopen(false)}>
-      <div className="modal">
+    <div className="backdrop">
+      <div ref={ref} className="modal">
         <div className="modal__header">
           <h2 className="title">{title}</h2>
           <button onClick={() => setisopen(false)}>
