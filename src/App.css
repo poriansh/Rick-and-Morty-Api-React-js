@@ -51,7 +51,6 @@
 .main {
   display: flex;
   flex-direction: column-reverse;
-  justify-content: space-between;
   width: 100%;
   gap: 2rem;
 }
@@ -79,14 +78,17 @@
   padding: 0.8rem;
   transition: all 0.2s ease-out;
 }
-.list__item .name{
+.list__item .name {
   font-size: 1.2rem;
 }
 .list__item:hover {
   background-color: var(--slate-700);
 }
-.empty{
+.empty {
+  display: flex;
+  justify-content: center;
   flex-grow: 3;
+  color: #fff;
 }
 .list__item img {
   grid-column: 1/3;
@@ -110,7 +112,7 @@
   grid-column: 3/4;
   grid-row: 1/3;
   align-self: center;
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .icon.red {
@@ -192,22 +194,20 @@
   border-radius: 1rem;
   padding: 1rem;
 }
-.character-episodes ul{
+.character-episodes ul {
   max-height: 200px;
   overflow-y: scroll;
   padding: 1rem;
 }
-.character-episodes ul::-webkit-scrollbar { 
-  
+.character-episodes ul::-webkit-scrollbar {
   opacity: 50%;
   width: 10px;
   border-radius: 10px;
-
 }
-.character-episodes ul::-webkit-scrollbar-track{
+.character-episodes ul::-webkit-scrollbar-track {
   background-color: transparent;
 }
-.character-episodes ul::-webkit-scrollbar-thumb{
+.character-episodes ul::-webkit-scrollbar-thumb {
   background-color: #ffffff1b;
   opacity: 50%;
   width: 10px;
@@ -226,7 +226,7 @@
   align-items: center;
   justify-content: center;
 }
-.icon--active{
+.icon--active {
   rotate: 180deg;
 }
 
@@ -245,7 +245,15 @@
   padding: 0.5rem 0;
   /* cursor: pointer; */
 }
-
+.caracter-wrraper {
+  flex-shrink: 0;
+  flex-grow: 3;
+}
+.characters-list {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
 @media (min-width: 768px) {
   .character-detail {
     flex-direction: row;
@@ -256,23 +264,21 @@
   .character-detail__info .actions {
     flex-direction: row;
   }
-  .character-episodes li{
+  .character-episodes li {
     flex-direction: row;
   }
 }
 @media (min-width: 992px) {
-  .main{
+  .main {
     flex-direction: row;
   }
   .character-detail {
     flex-direction: row;
   }
-  .caracter-wrraper{
-    flex-grow: 3;
+  .caracter-wrraper {
+    flex-grow: 1;
   }
   .characters-list {
-    flex-grow: 2;
+    flex-grow: 1;
   }
-  
 }
-

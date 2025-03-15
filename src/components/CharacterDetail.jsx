@@ -1,53 +1,18 @@
 import {ArrowUpCircleIcon} from "@heroicons/react/20/solid";
-import {useEffect, useState} from "react";
-import axios from "axios";
-import toast from "react-hot-toast";
 import Loader from "./Loader";
+import useCharacterId from "../hooks/useCharacterId";
+import { useState } from "react";
 function CharacterDetail({selectId, handelAddchar, addFoveritStop}) {
-  const [character, setCharacter] = useState(null);
-  const [episodes, setepisodes] = useState(null);
-  const [isloading, setloading] = useState(false);
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        setloading(true);
-        setCharacter(null);
-        const { data } = await axios.get(`https://rickandmortyapi.com/api/character/${selectId}`);
-
-        const episodeId = data.episode.map((e) => e.split("/").at(-1));
-
-        const {data: episodeData} = await axios.get(
-          `https://rickandmortyapi.com/api/episode/${episodeId}`
-        );
-        setepisodes([episodeData].flat());
-        setCharacter(data);
-      } catch (error) {
-        toast.error(error.response.data.error);
-      } finally {
-        setloading(false);
-      }
-    }
-    if (selectId) fetchData();
-  }, [selectId]);
+  const {character, episodes, isloading} = useCharacterId(selectId);
   if (isloading)
     return (
-      <div className="empty" style={{ display: "flex", justifyContent: "center", alignItems: "flex-start"}}>
+      <div className="empty">
         <Loader />
       </div>
     );
   if (character === null || selectId === null) {
     return (
-
-       <div
-      className="empty"
-        style={{
-         
-          color: "#fff",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "flex-start",
-        }}
-      >
+      <div className="empty" >
         select character
       </div>
     );
