@@ -9,9 +9,8 @@ export default function useClickside(handler, listenCapturing = true) {
         handler();
       }
     }
-
     document.addEventListener("click", handleClick, listenCapturing);
-
+    // listenCapturing = اگر true  باشه ایونت از پدر به فرزند اجرا میشه 
     return () => document.removeEventListener("click", handleClick, listenCapturing);
   }, [handler, listenCapturing]);
 

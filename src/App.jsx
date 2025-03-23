@@ -11,7 +11,7 @@ function App() {
   const [query, setquery] = useState("");
   const {Characters}  = useCharacter(query);
   const [selectId, setselectid] = useState(null);
-  const [Foverit, setFoverit] = useLocalstorage("FoveritList");
+  const [Foverit, setFoverit] = useLocalstorage("FoveritList",[]);
 
   const onselected = (id) => {
     setselectid((previd) => (previd === id ? null : id));

@@ -1,11 +1,11 @@
 import {useEffect, useState} from "react";
 
-function useLocalstorage(key) {
-  const [Foverit, setFoverit] = useState(() => JSON.parse(localStorage.getItem(key)) || []);
+function useLocalstorage(key, initstate) {
+  const [Foverit, setFoverit] = useState(() => JSON.parse(localStorage.getItem(key)) || initstate);
   useEffect(() => {
     localStorage.setItem(key, JSON.stringify(Foverit));
   }, [Foverit]);
-    return [Foverit, setFoverit];
+  return [Foverit, setFoverit];
 }
 
 export default useLocalstorage;
